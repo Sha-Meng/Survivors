@@ -8,8 +8,11 @@ public interface IBullet
     bool Enable { get; }
 
     // 初始化位置和速度
-    void Init(int bulletId, Vector3 pos, Vector3 velocity);
+    void Init(int bulletId, Vector3 pos, Vector3 dir);
     void Update(float deltaTime);
+
+    // 命中角色
+    void OnHit(IActor actor);
 
     void Recycle();
 }

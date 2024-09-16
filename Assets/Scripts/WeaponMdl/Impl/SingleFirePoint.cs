@@ -10,7 +10,7 @@ public class SingleFirePoint : IFirePoint
     private bool mEnable = false;
     private int mBulletId;
     // 射击频率
-    private float mInterval = 1f / 5;
+    private float mInterval = 1f / 2;
     private float mDelta = 0f;
     private GameObject mFirePointObj = null;
     private Transform mParent;

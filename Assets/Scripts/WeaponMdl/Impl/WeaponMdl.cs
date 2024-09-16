@@ -29,9 +29,9 @@ public class WeaponMdl : IWeaponMdl
         return firePoint;
     }
 
-    public IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 velocity)
+    public IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 dir)
     {
-        return mBulletMgr.CreateBullet(bulletId, pos, velocity);
+        return mBulletMgr.CreateBullet(bulletId, pos, dir);
     }
     
     

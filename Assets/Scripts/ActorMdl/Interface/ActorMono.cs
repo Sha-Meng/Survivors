@@ -34,6 +34,7 @@ public class ActorMono : MonoBehaviour
             {
                 // 被子弹打中了, 自己被销毁
                 SingletonGameCore.GetInstance().ActorMdl.RemoveActor(Actor);
+                bulletMono.Bullet.OnHit(Actor);
             }
         }
     }

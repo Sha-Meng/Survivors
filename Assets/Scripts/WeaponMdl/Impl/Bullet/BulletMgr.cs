@@ -5,10 +5,10 @@ using UnityEngine;
 public class BulletMgr
 {
     private List<IBullet> mBulletList = new List<IBullet>();
-    public IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 velocity)
+    public IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 dir)
     {
         IBullet bullet = new SimpleBullet();
-        bullet.Init(bulletId, pos, velocity);
+        bullet.Init(bulletId, pos, dir);
         mBulletList.Add(bullet);
 
         return bullet;

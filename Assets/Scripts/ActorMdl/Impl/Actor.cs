@@ -40,13 +40,14 @@ public class Actor : IActor
     
     public void Init(ActorType actorType)
     {
+        mActorType = actorType;
         mActorMdl = SingletonGameCore.GetInstance().ActorMdl;
         if (mActorAvatar == null)
         {
             mActorAvatar = new ActorAvatar();
         }
         mActorAvatar.Init(this);
-        mActorType = actorType;
+        
         if (actorType == ActorType.RealPlayer)
         {
             InitFirePoints();
@@ -120,8 +121,9 @@ public class Actor : IActor
         {
             // 敌人自动朝向主角移动
             Vector3 targetPos = mActorMdl.MainActor.Position;
+            mVelocityDir = (targetPos - Position).normalized;
             // 控制朝向
-            mRotation = Quaternion.LookRotation(targetPos - Position);
+            mRotation = Quaternion.LookRotation(mVelocityDir);
         }
         else if (mActorType == ActorType.RealPlayer)
         {

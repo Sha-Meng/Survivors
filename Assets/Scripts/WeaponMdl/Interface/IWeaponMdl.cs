@@ -14,5 +14,5 @@ public interface IWeaponMdl
     /// <returns></returns>
     IFirePoint CreateFirePoint(FirePointType type, Transform parent, Vector3 offset);
 
-    IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 velocity);
+    IBullet CreateBullet(int bulletId, Vector3 pos, Vector3 dir);
 }
