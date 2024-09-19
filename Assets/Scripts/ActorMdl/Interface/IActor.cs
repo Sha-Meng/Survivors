@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IActor
 {
+    Transform Root { get; }
     Vector3 Position { get; }
     Quaternion Rotation { get; }
     // Vector3 Velocity { get; }

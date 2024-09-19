@@ -36,11 +36,30 @@ public class SingletonGameCore
 
     private ICameraMdl mCameraMdl;
 
+    private ISkillMdl mSkillMdl;
+
+    public ISkillMdl SkillMdl
+    {
+        get { return mSkillMdl; }
+    }
+
+    private IPropsMdl mPropsMdl;
+
+    public IPropsMdl PropsMdl
+    {
+        get { return mPropsMdl; }
+    }
+
 
     public void Init()
     {
         mWeaponMdl = new WeaponMdl();
         mWeaponMdl.Init();
+        mSkillMdl = new SkillMdl();
+        mSkillMdl.Init();
+        mPropsMdl = new PropsMdl();
+        mPropsMdl.Init();
+        
         mActorMdl = new ActorMdl();
         mActorMdl.Init();
         mInputMode = new KeyBoardInputMode();
@@ -54,6 +73,7 @@ public class SingletonGameCore
         mInputMode.Update(deltaTime);
         mActorMdl.Update(deltaTime);
         mWeaponMdl.Update(deltaTime);
+        mSkillMdl.Update(deltaTime);
     }
 
     public void LateUpdate()

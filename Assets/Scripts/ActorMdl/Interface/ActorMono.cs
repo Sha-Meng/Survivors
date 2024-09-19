@@ -36,6 +36,14 @@ public class ActorMono : MonoBehaviour
                 SingletonGameCore.GetInstance().ActorMdl.RemoveActor(Actor);
                 bulletMono.Bullet.OnHit(Actor);
             }
+            
+            // 敌人：检测道具
+            PropMono propMono = other.gameObject.GetComponent<PropMono>();
+            if (propMono != null)
+            {
+                // 被道具打中了
+                propMono.Prop.OnHit(Actor);
+            }
         }
     }
 }

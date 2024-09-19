@@ -12,6 +12,15 @@ public class Actor : IActor
     private List<IFirePoint> mFirePointList = new List<IFirePoint>();
 
     private Vector3 mPosition;
+
+    public Transform Root
+    {
+        get
+        {
+            return mActorAvatar.mAvatarObj.transform;
+        }
+    }
+
     public Vector3 Position
     {
         get { return mPosition; }
@@ -51,6 +60,7 @@ public class Actor : IActor
         if (actorType == ActorType.RealPlayer)
         {
             InitFirePoints();
+            CreateSkill();
         }
     }
 
@@ -81,6 +91,21 @@ public class Actor : IActor
         mFirePointList.Add(firePoint);
     }
 
+    private void CreateSkill()
+    {
+        ISkill skill1 = SingletonGameCore.GetInstance().SkillMdl.CreateSkill(this, SkillType.Shield, 1);
+        if (skill1 is IShieldSkill shieldSkill1)
+        {
+            shieldSkill1.Rotate(-90);
+        }
+        
+        ISkill skill2 = SingletonGameCore.GetInstance().SkillMdl.CreateSkill(this, SkillType.Shield, 2);
+        if (skill2 is IShieldSkill shieldSkill)
+        {
+            shieldSkill.Rotate(90);
+        }
+    }
+
     public void SetVelocity(Vector3 velocity)
     {
         mSpeed = velocity.magnitude;
@@ -99,7 +124,6 @@ public class Actor : IActor
     {
         Quaternion rotation = Quaternion.AngleAxis(deltaAngle, Vector3.up);
         mVelocityDir = rotation * mVelocityDir;
-        Debug.LogError(Quaternion.LookRotation(mVelocityDir).eulerAngles.ToString());
     }
 
     public void Update(float deltaTime)
