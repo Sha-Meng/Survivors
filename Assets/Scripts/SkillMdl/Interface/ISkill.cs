@@ -16,4 +16,5 @@ public interface ISkill
 public enum SkillType
 {
     Shield, // 护盾
+    Laser, // 激光
 }

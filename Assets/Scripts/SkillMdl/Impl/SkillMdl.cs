@@ -28,7 +28,9 @@ public class SkillMdl : ISkillMdl
             case SkillType.Shield:
                 skill = new ShieldSkill();
                 break;
-            
+            case SkillType.Laser:
+                skill = new LaserSkill();
+                break;
         }
 
         if (skill != null)

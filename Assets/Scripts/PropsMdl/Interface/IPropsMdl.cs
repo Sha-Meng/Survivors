@@ -11,4 +11,5 @@ public interface IPropsMdl
 public enum PropType
 {
     Shield, // 护盾道具
+    Laser, // 激光道具
 }

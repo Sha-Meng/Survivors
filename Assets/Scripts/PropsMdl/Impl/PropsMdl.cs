@@ -17,6 +17,9 @@ public class PropsMdl : IPropsMdl
             case PropType.Shield:
                 prop = new ShieldProp();
                 break;
+            case PropType.Laser:
+                prop = new LaserProp();
+                break;
         }
 
         if (prop != null)

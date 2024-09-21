@@ -104,6 +104,8 @@ public class Actor : IActor
         {
             shieldSkill.Rotate(90);
         }
+
+        ISkill skill3 = SingletonGameCore.GetInstance().SkillMdl.CreateSkill(this, SkillType.Laser, 1);
     }
 
     public void SetVelocity(Vector3 velocity)

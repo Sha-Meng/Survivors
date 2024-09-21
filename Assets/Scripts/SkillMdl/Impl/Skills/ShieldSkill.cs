@@ -17,7 +17,7 @@ public class ShieldSkill : IShieldSkill
 
     public void Update(float deltaTime)
     {
-        mProp.Root.RotateAround(mOwner.Position, Vector3.up, 90 * deltaTime);
+        Rotate(90 * deltaTime);
     }
 
     public void Rotate(float angle)
